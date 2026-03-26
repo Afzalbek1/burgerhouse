@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biz haqimizda - BurgerHouse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/main.js"></script>
+</head>
+
+<body class="bg-dark-900 text-slate-50 font-outfit antialiased selection:bg-primary-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-40 glass top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer"
+                    onclick="window.location.href='index.html'">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white text-xl font-bold">
+                        <i class="fas fa-hamburger"></i>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-white">Burger<span
+                            class="text-primary-500">House</span></span>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white font-medium transition">Asosiy</a>
+                    <a href="about.html" class="text-primary-500 font-medium transition hover:text-primary-400">Biz
+                        haqimizda</a>
+                    <a href="index.html#menu" class="text-gray-300 hover:text-white font-medium transition">Menu</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="cart.html" class="relative text-gray-300 hover:text-primary-500 transition group">
+                        <i class="fas fa-shopping-cart text-xl group-hover:scale-110 transition"></i>
+                        <span id="cart-icon-badge"
+                            class="absolute -top-2 -right-2 bg-primary-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">0</span>
+                    </a>
+                    <a href="login.html" class="text-gray-300 hover:text-white font-medium transition">Kirish</a>
+                    <a href="register.html"
+                        class="bg-primary-500 hover:bg-primary-600 text-white px-5 py-2.5 rounded-full font-medium transition shadow-lg shadow-primary-500/30">Ro'yxatdan
+                        o'tish</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button onclick="toggleMenu()" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden glass border-t border-gray-700 absolute w-full left-0 origin-top">
+            <div class="px-4 pt-2 pb-4 space-y-2 bg-dark-900 border-b border-white/10 shadow-2xl">
+                <a href="index.html"
+                    class="text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-2 rounded-md text-base font-medium transition">Asosiy</a>
+                <a href="about.html"
+                    class="text-primary-500 bg-primary-500/10 block px-3 py-2 rounded-md text-base font-medium">Biz
+                    haqimizda</a>
+                <a href="index.html#menu"
+                    class="text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-2 rounded-md text-base font-medium transition">Menu</a>
+                <div class="border-t border-white/10 my-2 pt-2"></div>
+                <a href="login.html"
+                    class="text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-2 rounded-md text-base font-medium transition">Kirish</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-dark-900 text-center">
+        <!-- Abstract Background -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1920&q=80"
+                alt="Background" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/80 to-transparent"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <p class="text-primary-500 font-bold tracking-widest uppercase mb-4 text-sm animate-pulse">Bizning Jamoamiz
+            </p>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6">BurgerHouse<br>Tarixi</h1>
+            <p class="text-xl text-gray-300 leading-relaxed">
+                2020 yildan beri Toshkent shahridagi eng tezkor va sifatli taomlar maskani. Biz faqat sifatli
+                masalliqlardan foydalanamiz!
+            </p>
+        </div>
+    </header>
+
+    <!-- Story & Features Section -->
+    <section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                <div class="lg:w-1/2 relative group">
+                    <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=800&q=80"
+                        alt="Restaurant interior" class="rounded-3xl shadow-2xl z-10 relative">
+                    <div
+                        class="absolute inset-0 bg-primary-500/20 rounded-3xl transform translate-x-4 translate-y-4 -z-10 group-hover:translate-x-6 group-hover:translate-y-6 transition duration-300">
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 space-y-8">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-4">Sifat bizning ustuvor maqsadimiz</h2>
+                        <div class="w-16 h-1 bg-primary-500 rounded-full mb-6"></div>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                            BurgerHouse shunchaki fast-food emas. Bu yangi so'yilgan halol go'sht, har kuni saharlab
+                            yopiladigan issiqqinag bulochkalar va organik sabzavotlar uyg'unligi. Biz har bir taomni
+                            mehr bilan, xuddi o'zimiz uchun pishirayotgandek tayyorlaymiz.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Feature 1 -->
+                        <div class="glass-card p-6 rounded-2xl border-t border-l border-white/5">
+                            <div
+                                class="w-12 h-12 bg-primary-500/10 rounded-xl flex items-center justify-center text-primary-500 text-xl mb-4">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3 class="text-white font-bold mb-2">Yangi masalliqlar</h3>
+                            <p class="text-sm text-gray-500">Mahsulotlar har kuni fermerlardan to'g'ridan-to'g'ri
+                                yetkazib kelinadi.</p>
+                        </div>
+
+                        <!-- Feature 2 -->
+                        <div class="glass-card p-6 rounded-2xl border-t border-l border-white/5">
+                            <div
+                                class="w-12 h-12 bg-primary-500/10 rounded-xl flex items-center justify-center text-primary-500 text-xl mb-4">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3 class="text-white font-bold mb-2">Tezkor yetkazish</h3>
+                            <p class="text-sm text-gray-500">O'rtacha yetkazib berish vaqti 30-40 daqiqani tashkil
+                                etadi.</p>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="glass-card p-6 rounded-2xl border-t border-l border-white/5">
+                            <div
+                                class="w-12 h-12 bg-primary-500/10 rounded-xl flex items-center justify-center text-primary-500 text-xl mb-4">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h3 class="text-white font-bold mb-2">Bosh oshpazlar</h3>
+                            <p class="text-sm text-gray-500">Katta tajribaga ega oshpazlarimiz har doim mazzani
+                                ta'minlaydi.</p>
+                        </div>
+
+                        <!-- Feature 4 -->
+                        <div class="glass-card p-6 rounded-2xl border-t border-l border-white/5">
+                            <div
+                                class="w-12 h-12 bg-primary-500/10 rounded-xl flex items-center justify-center text-primary-500 text-xl mb-4">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h3 class="text-white font-bold mb-2">Halol sertifikati</h3>
+                            <p class="text-sm text-gray-500">Barcha masalliqlar to'liq 100% Halol standartlariga javob
+                                beradi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-16 bg-primary-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="space-y-2">
+                    <div class="text-4xl md:text-5xl font-extrabold text-white">4+</div>
+                    <div class="text-orange-900 font-bold uppercase tracking-wider text-sm">Yillik tajriba</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-4xl md:text-5xl font-extrabold text-white">50k+</div>
+                    <div class="text-orange-900 font-bold uppercase tracking-wider text-sm">Mamnun mijozlar</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-4xl md:text-5xl font-extrabold text-white">120+</div>
+                    <div class="text-orange-900 font-bold uppercase tracking-wider text-sm">Xodimlar jamoasi</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-4xl md:text-5xl font-extrabold text-white">35+</div>
+                    <div class="text-orange-900 font-bold uppercase tracking-wider text-sm">Xil taomlar menyusi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Copy -->
+    <footer class="bg-dark-900 border-t border-white/10 pt-10 pb-10">
+        <div class="max-w-7xl mx-auto px-4 text-center text-gray-500 text-sm">
+            &copy; <span id="current-year"></span> BurgerHouse. Barcha huquqlar himoyalangan.
+        </div>
+    </footer>
+
+</body>
+
+</html>

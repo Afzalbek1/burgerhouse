@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoh Burger - BurgerHouse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/main.js"></script>
+</head>
+
+<body class="bg-dark-900 text-slate-50 font-outfit antialiased selection:bg-primary-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-40 glass top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer"
+                    onclick="window.location.href='index.html'">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-primary-500/30">
+                        <i class="fas fa-hamburger"></i>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-white">Burger<span
+                            class="text-primary-500">House</span></span>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white font-medium transition">Asosiy</a>
+                    <a href="about.html" class="text-gray-300 hover:text-white font-medium transition">Biz haqimizda</a>
+                    <a href="index.html#menu"
+                        class="text-primary-500 font-medium transition hover:text-primary-400">Menu</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="cart.html" class="relative text-gray-300 hover:text-primary-500 transition group">
+                        <i class="fas fa-shopping-cart text-xl group-hover:scale-110 transition"></i>
+                        <span id="cart-icon-badge"
+                            class="absolute -top-2 -right-2 bg-primary-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full transition-all duration-300">0</span>
+                    </a>
+                    <a href="login.html" class="text-gray-300 hover:text-white font-medium transition">Kirish</a>
+                    <a href="profile.html" class="text-gray-300 hover:text-primary-500 transition group">
+                        <i class="fas fa-user-circle text-2xl group-hover:scale-110 transition"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center gap-4">
+                    <a href="cart.html" class="relative text-gray-300 hover:text-primary-500 transition">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cart-icon-badge-mobile"
+                            class="absolute -top-2 -right-2 bg-primary-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full transition-all duration-300">0</span>
+                    </a>
+                    <button onclick="toggleMenu()" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="md:hidden hidden glass border-t border-gray-700 absolute w-full left-0 origin-top animate-[slideInRight_0.3s_ease]">
+            <div class="px-4 pt-2 pb-4 space-y-2 bg-dark-900 border-b border-white/10 shadow-2xl">
+                <a href="index.html"
+                    class="text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-2 rounded-md text-base font-medium transition">Asosiy</a>
+                <a href="about.html"
+                    class="text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-2 rounded-md text-base font-medium transition">Biz
+                    haqimizda</a>
+                <a href="index.html#menu"
+                    class="text-primary-500 bg-primary-500/10 block px-3 py-2 rounded-md text-base font-medium">Menu</a>
+                <a href="profile.html"
+                    class="text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-2 rounded-md text-base font-medium transition">Profil</a>
+                <a href="login.html"
+                    class="text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-2 rounded-md text-base font-medium transition">Kirish</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="pt-32 pb-20 mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Back Button -->
+            <a href="index.html#menu"
+                class="inline-flex items-center gap-2 text-gray-400 hover:text-primary-500 transition mb-8 group">
+                <i class="fas fa-arrow-left group-hover:-translate-x-1 transition"></i> Ortga qaytish
+            </a>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+                <!-- Image Gallery -->
+                <div class="space-y-4">
+                    <div class="glass-card rounded-3xl p-4 md:p-8 flex items-center justify-center relative group">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+                            alt="Shoh Burger"
+                            class="w-full max-w-md rounded-2xl object-cover shadow-2xl group-hover:scale-105 transition duration-500">
+                        <div
+                            class="absolute top-6 right-6 bg-dark-900/90 backdrop-blur-md px-3 py-1.5 rounded-lg text-sm font-bold flex items-center gap-1.5 border border-white/10">
+                            <i class="fas fa-star text-yellow-400"></i> <span class="text-white">4.8</span>
+                        </div>
+                    </div>
+                    <!-- Thumbnails -->
+                    <div class="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                        <div
+                            class="w-24 h-24 flex-shrink-0 glass-card rounded-2xl p-2 cursor-pointer border-2 border-primary-500">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=200&q=80"
+                                alt="Thumb" class="w-full h-full object-cover rounded-xl">
+                        </div>
+                        <div
+                            class="w-24 h-24 flex-shrink-0 glass-card rounded-2xl p-2 cursor-pointer border-2 border-transparent hover:border-primary-500/50 transition">
+                            <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=200&q=80"
+                                alt="Thumb" class="w-full h-full object-cover rounded-xl">
+                        </div>
+                        <div
+                            class="w-24 h-24 flex-shrink-0 glass-card rounded-2xl p-2 cursor-pointer border-2 border-transparent hover:border-primary-500/50 transition">
+                            <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=200&q=80"
+                                alt="Thumb" class="w-full h-full object-cover rounded-xl">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="flex flex-col justify-center">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span
+                            class="bg-primary-500/20 text-primary-400 font-bold px-3 py-1 rounded-full text-xs uppercase tracking-wider backdrop-blur-sm">Burgerlar</span>
+                        <span
+                            class="bg-red-500/20 text-red-400 font-bold px-3 py-1 rounded-full text-xs uppercase tracking-wider backdrop-blur-sm"><i
+                                class="fas fa-fire"></i> Eng ko'p sotilgan</span>
+                    </div>
+
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Shoh Burger</h1>
+
+                    <div class="text-3xl font-bold text-white mb-6">45 000 <span
+                            class="text-lg text-gray-400 font-normal">so'm</span></div>
+
+                    <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                        Bizning maxsus "Shoh Burger" - bu olovda pishirilgan 100% mol go'shtidan tayyorlangan ikki
+                        qavatli kotlet, erigan chedder pishlog'i, yangi uzilgan pomidorlar, tiniq aysberg salati
+                        barglari, tuzlangan bodring va karamellashtirilgan piyoz. Bularning barchasi ustiga maxsus
+                        firmenniy sousimiz quyilib, kunga boqarlik isitilgan kunjutli bulochka orasiga joylashtirilgan.
+                        Haqiqiy mazaning shohona ko'rinishi!
+                    </p>
+
+                    <div class="border-t border-b border-white/10 py-6 mb-8">
+                        <div class="flex items-center gap-10">
+                            <!-- Quantity -->
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Miqdori</h4>
+                                <div
+                                    class="flex items-center gap-4 bg-dark-800 rounded-full px-2 py-1 border border-white/10 w-fit">
+                                    <button
+                                        onclick="document.getElementById('qty').innerText = Math.max(1, parseInt(document.getElementById('qty').innerText)-1)"
+                                        class="w-8 h-8 rounded-full bg-white/5 hover:bg-primary-500 flex items-center justify-center text-white transition">
+                                        <i class="fas fa-minus text-xs"></i>
+                                    </button>
+                                    <span id="qty" class="font-bold text-lg w-4 text-center">1</span>
+                                    <button
+                                        onclick="document.getElementById('qty').innerText = parseInt(document.getElementById('qty').innerText)+1"
+                                        class="w-8 h-8 rounded-full bg-white/5 hover:bg-primary-500 flex items-center justify-center text-white transition">
+                                        <i class="fas fa-plus text-xs"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Options -->
+                            <div>
+                                <h4 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Qo'shimcha
+                                </h4>
+                                <div class="flex gap-3">
+                                    <label class="cursor-pointer">
+                                        <input type="checkbox" class="peer sr-only">
+                                        <div
+                                            class="px-4 py-2 glass rounded-full text-sm font-medium peer-checked:bg-primary-500 peer-checked:border-primary-500 peer-checked:text-white transition text-gray-400">
+                                            + Pishloq
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="checkbox" class="peer sr-only">
+                                        <div
+                                            class="px-4 py-2 glass rounded-full text-sm font-medium peer-checked:bg-primary-500 peer-checked:border-primary-500 peer-checked:text-white transition text-gray-400">
+                                            + Jalapeno
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="addToCart(event, 'Shoh Burger')"
+                            class="flex-1 bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-full font-bold text-lg transition shadow-lg shadow-primary-500/30 flex items-center justify-center gap-3">
+                            <i class="fas fa-cart-plus"></i> Savatga qo'shish
+                        </button>
+                        <a href="checkout.html"
+                            class="flex-1 glass text-white px-8 py-4 rounded-full font-bold text-lg transition hover:bg-white/10 flex items-center justify-center gap-3 text-center border-white/20">
+                            Xozirroq xarid qilish
+                        </a>
+                    </div>
+
+                    <!-- Meta info -->
+                    <div class="mt-8 flex items-center gap-6 text-sm text-gray-400">
+                        <div class="flex items-center gap-2"><i class="fas fa-clock text-primary-400"></i> Tayyorlanish:
+                            10 min</div>
+                        <div class="flex items-center gap-2"><i class="fas fa-fire text-red-400"></i> 650 kkal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

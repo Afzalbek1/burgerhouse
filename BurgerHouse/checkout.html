@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rasmiylashtirish - BurgerHouse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Yandex Maps JS API -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU" type="text/javascript"></script>
+    <script src="assets/js/main.js"></script>
+</head>
+
+<body class="bg-dark-900 text-slate-50 font-outfit antialiased selection:bg-primary-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-40 glass top-0 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer"
+                    onclick="window.location.href='index.html'">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white text-xl font-bold">
+                        <i class="fas fa-hamburger"></i>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-white">Burger<span
+                            class="text-primary-500">House</span></span>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white font-medium transition">Asosiy</a>
+                    <a href="about.html" class="text-gray-300 hover:text-white font-medium transition">Biz haqimizda</a>
+                    <a href="index.html#menu" class="text-gray-300 hover:text-white font-medium transition">Menu</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="cart.html" class="relative text-gray-300 hover:text-primary-500 transition group">
+                        <i class="fas fa-shopping-cart text-xl group-hover:scale-110 transition"></i>
+                        <span id="cart-icon-badge"
+                            class="absolute -top-2 -right-2 bg-primary-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full z-10">2</span>
+                    </a>
+                    <a href="profile.html" class="text-gray-300 hover:text-primary-500 transition group">
+                        <i class="fas fa-user-circle text-2xl group-hover:scale-110 transition"></i>
+                    </a>
+                </div>
+
+                <div class="md:hidden flex items-center gap-4">
+                    <a href="cart.html" class="relative text-gray-300 hover:text-primary-500 transition">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span
+                            class="absolute -top-2 -right-2 bg-primary-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">2</span>
+                    </a>
+                    <button onclick="toggleMenu()" class="text-gray-300 hover:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden glass border-t border-gray-700 absolute w-full left-0 origin-top">
+            <div class="px-4 pt-2 pb-4 space-y-2 bg-dark-900 border-b border-white/10 shadow-2xl">
+                <a href="index.html"
+                    class="text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-2 rounded-md text-base font-medium transition">Asosiy</a>
+                <a href="about.html"
+                    class="text-gray-300 hover:text-white hover:bg-white/5 block px-3 py-2 rounded-md text-base font-medium transition">Biz
+                    haqimizda</a>
+                <a href="index.html#menu"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition">Menu</a>
+                <a href="profile.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition">Profil</a>
+                <a href="login.html"
+                    class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition">Kirish</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <section class="pt-32 pb-20 mt-10 min-h-screen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1
+                class="text-3xl md:text-4xl font-extrabold text-white mb-8 border-b border-white/10 pb-6 flex items-center gap-3">
+                <i class="fas fa-money-check-alt text-primary-500"></i> Buyurtmani rasmiylashtirish
+            </h1>
+
+            <form
+                onsubmit="event.preventDefault(); Toast.show('Buyurtmangiz qabul qilindi!', 'success'); setTimeout(() => window.location.href='profile.html', 2000)"
+                class="flex flex-col lg:flex-row gap-10">
+                <!-- Form Inputs -->
+                <div class="lg:w-2/3 space-y-8">
+
+                    <!-- Personal Info -->
+                    <div class="glass-card rounded-2xl p-6 md:p-8">
+                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                            <span
+                                class="w-8 h-8 rounded-full bg-primary-500/20 text-primary-500 flex items-center justify-center text-sm">1</span>
+                            Shaxsiy ma'lumotlar
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Ism <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" required
+                                    class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition"
+                                    placeholder="Ismingizni kiriting">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Familiya <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" required
+                                    class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition"
+                                    placeholder="Familiyangizni kiriting">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Telefon raqam <span
+                                        class="text-red-500">*</span></label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                        <span class="text-gray-500">+998</span>
+                                    </div>
+                                    <input type="tel" required
+                                        class="w-full bg-dark-900 border border-white/10 rounded-xl pl-16 pr-4 py-3 text-white focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition"
+                                        placeholder="(90) 123-45-67">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Info -->
+                    <div class="glass-card rounded-2xl p-6 md:p-8">
+                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                            <span
+                                class="w-8 h-8 rounded-full bg-primary-500/20 text-primary-500 flex items-center justify-center text-sm">2</span>
+                            Yetkazib berish manzili
+                        </h2>
+
+                        <div class="mb-6">
+                            <p class="text-sm font-medium text-gray-400 mb-3">Xaritadan belgilang (O'zbekiston,
+                                Toshkent)</p>
+                            <!-- Yandex Map Container -->
+                            <div id="map"
+                                class="w-full h-80 rounded-xl overflow-hidden border border-white/10 relative z-0">
+                                <!-- Fallback map placeholder while API loads -->
+                                <div
+                                    class="absolute inset-0 bg-dark-900 flex flex-col items-center justify-center text-gray-500 z-[-1]">
+                                    <i class="fas fa-map-marked-alt text-4xl mb-2 text-primary-500/50"></i>
+                                    <span>Xarita yuklanmoqda...</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-2"><i class="fas fa-info-circle text-primary-500"></i>
+                                Manzilingizni aniq belgilang</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">To'liq manzil <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" id="address-input" required
+                                    class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition"
+                                    placeholder="Ko'cha nomi, uy raqami, xonadon...">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-400 mb-2">Kuryer uchun izoh
+                                    (ixtiyoriy)</label>
+                                <textarea rows="3"
+                                    class="w-full bg-dark-900 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition resize-none"
+                                    placeholder="Masalan: Uyning orqa tarafidan keling, domofon ishlamaydi..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="glass-card rounded-2xl p-6 md:p-8">
+                        <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                            <span
+                                class="w-8 h-8 rounded-full bg-primary-500/20 text-primary-500 flex items-center justify-center text-sm">3</span>
+                            To'lov usuli
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Card Payment -->
+                            <label class="cursor-pointer relative">
+                                <input type="radio" name="payment" class="peer sr-only" checked>
+                                <div
+                                    class="glass border-2 border-white/10 rounded-xl p-5 flex items-center gap-4 peer-checked:border-primary-500 peer-checked:bg-primary-500/10 transition">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-dark-900 flex items-center justify-center text-blue-400 text-2xl shrink-0">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-white mb-1">Karta orqali</p>
+                                        <p class="text-xs text-gray-400">Click, Payme, Uzcard, Humo</p>
+                                    </div>
+                                    <div
+                                        class="absolute top-4 right-4 w-5 h-5 rounded-full border-2 border-primary-500 flex items-center justify-center text-transparent peer-checked:text-primary-500 transition">
+                                        <i class="fas fa-circle text-[10px]"></i>
+                                    </div>
+                                </div>
+                            </label>
+
+                            <!-- Cash Payment -->
+                            <label class="cursor-pointer relative">
+                                <input type="radio" name="payment" class="peer sr-only">
+                                <div
+                                    class="glass border-2 border-white/10 rounded-xl p-5 flex items-center gap-4 peer-checked:border-primary-500 peer-checked:bg-primary-500/10 transition">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-dark-900 flex items-center justify-center text-green-400 text-2xl shrink-0">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold text-white mb-1">Naqd pul</p>
+                                        <p class="text-xs text-gray-400">Kuryerga yetkazilganda</p>
+                                    </div>
+                                    <div
+                                        class="absolute top-4 right-4 w-5 h-5 rounded-full border-2 border-primary-500 flex items-center justify-center text-transparent peer-checked:text-primary-500 transition">
+                                        <i class="fas fa-circle text-[10px]"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Order Summary Sidebar -->
+                <div class="lg:w-1/3">
+                    <div
+                        class="glass-card rounded-2xl p-6 lg:p-8 sticky top-28 border border-primary-500/30 shadow-lg shadow-primary-500/10">
+                        <h3
+                            class="text-xl font-bold text-white mb-6 uppercase tracking-wider border-b border-white/10 pb-4">
+                            Yakuniy hisob</h3>
+
+                        <!-- Mini cart items -->
+                        <div class="space-y-4 mb-6 max-h-48 overflow-y-auto pr-2 custom-scrollbar">
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=100&q=80"
+                                    alt="burger" class="w-12 h-12 rounded-lg object-cover">
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-bold text-white line-clamp-1">Shoh Burger</h4>
+                                    <p class="text-xs text-gray-400">1 x 45 000</p>
+                                </div>
+                                <span class="font-bold text-primary-400 text-sm">45 000</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1623366302587-bcaaddff2c49?auto=format&fit=crop&w=100&q=80"
+                                    alt="fries" class="w-12 h-12 rounded-lg object-cover">
+                                <div class="flex-1">
+                                    <h4 class="text-sm font-bold text-white line-clamp-1">Kartoshka Fri Max</h4>
+                                    <p class="text-xs text-gray-400">2 x 18 000</p>
+                                </div>
+                                <span class="font-bold text-primary-400 text-sm">36 000</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 mb-6 border-t border-white/10 pt-4">
+                            <div class="flex justify-between text-sm text-gray-400">
+                                <span>Mahsulotlar (3 dona)</span>
+                                <span class="text-white">81 000 so'm</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-gray-400">
+                                <span>Yetkazib berish <i class="fas fa-info-circle" title="Toshkent bo'ylab"></i></span>
+                                <span class="text-white">15 000 so'm</span>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-dashed border-white/20 pt-4 mb-8">
+                            <div class="flex justify-between items-center">
+                                <span class="text-lg font-bold text-white">To'lash uchun:</span>
+                                <span class="text-2xl font-extrabold text-primary-500">96 000 <span
+                                        class="text-xs text-gray-400 font-normal">so'm</span></span>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-primary-500 hover:bg-primary-600 text-white rounded-xl py-4 font-bold text-lg flex justify-center items-center gap-2 transition shadow-lg shadow-primary-500/30 hover:-translate-y-1">
+                            Buyurtmani tasdiqlash <i class="fas fa-check-circle"></i>
+                        </button>
+
+                        <div class="mt-4 flex items-center justify-center gap-2 text-xs text-gray-500">
+                            <i class="fas fa-shield-alt text-green-500"></i> Ma'lumotlaringiz xavfsizligi kafolatlangan
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Yandex Map Initialization
+        ymaps.ready(init);
+        function init() {
+            // Tashkent coordinates
+            var map = new ymaps.Map("map", {
+                center: [41.2995, 69.2401],
+                zoom: 12,
+                controls: ['zoomControl', 'geolocationControl']
+            });
+
+            // Draggable placemark
+            var placemark = new ymaps.Placemark([41.2995, 69.2401], {
+                hintContent: 'Manzilingizni belgilang'
+            }, {
+                draggable: true,
+                preset: 'islands#orangeIcon'
+            });
+
+            map.geoObjects.add(placemark);
+
+            // Fetch address on drag end
+            placemark.events.add('dragend', function (e) {
+                var coords = placemark.geometry.getCoordinates();
+                getAddress(coords);
+            });
+
+            // Fallback geocoding (basic implementation)
+            function getAddress(coords) {
+                ymaps.geocode(coords).then(function (res) {
+                    var firstGeoObject = res.geoObjects.get(0);
+                    if (firstGeoObject) {
+                        document.getElementById('address-input').value = firstGeoObject.getAddressLine();
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
